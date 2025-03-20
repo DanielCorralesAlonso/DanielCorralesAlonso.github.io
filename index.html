@@ -6,8 +6,20 @@
     <title>My Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        body {
+            background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #53354a);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
 </head>
-<body class="bg-gray-900 text-white">
+<body class="text-white">
     <nav class="bg-gray-800 py-4 shadow-md fixed w-full top-0">
         <div class="max-w-4xl mx-auto flex justify-between px-6">
             <h1 class="text-xl font-bold">Portfolio</h1>
@@ -40,12 +52,16 @@
         <h2 class="text-3xl font-semibold text-center mb-6">Projects</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
-                <h3 class="text-2xl font-semibold">Project Title</h3>
+                <img src="project1.jpg" alt="Project 1" class="w-full h-40 object-cover rounded-md">
+                <h3 class="text-2xl font-semibold mt-4">Project Title</h3>
                 <p class="text-gray-400 mt-2">Brief description of the project.</p>
+                <a href="https://github.com/yourusername/project1" class="text-blue-400 hover:underline mt-2 block">GitHub Repo</a>
             </div>
             <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
-                <h3 class="text-2xl font-semibold">Project Title</h3>
+                <img src="project2.jpg" alt="Project 2" class="w-full h-40 object-cover rounded-md">
+                <h3 class="text-2xl font-semibold mt-4">Project Title</h3>
                 <p class="text-gray-400 mt-2">Brief description of the project.</p>
+                <a href="https://yourwebsite.com/project2" class="text-blue-400 hover:underline mt-2 block">Live Demo</a>
             </div>
         </div>
     </section>
