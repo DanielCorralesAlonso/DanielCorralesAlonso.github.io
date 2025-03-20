@@ -1,59 +1,51 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <title>My Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
-<body>
-    <header>
-        <h1>Daniel Corrales Alonso</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About me</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#cv">CV</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+<body class="bg-gray-900 text-white">
+    <nav class="bg-gray-800 py-4 shadow-md fixed w-full top-0">
+        <div class="max-w-4xl mx-auto flex justify-between px-6">
+            <h1 class="text-xl font-bold">Portfolio</h1>
+            <div>
+                <a href="#projects" class="text-gray-300 hover:text-white px-4">Projects</a>
+                <a href="#contact" class="text-gray-300 hover:text-white px-4">Contact</a>
+            </div>
+        </div>
+    </nav>
+    
+    <header class="text-center py-20" id="home">
+        <h1 class="text-5xl font-bold opacity-0" id="title">Your Name</h1>
+        <p class="text-xl text-gray-400 opacity-0" id="tagline">Your Tagline or Profession</p>
     </header>
     
-    <section id="about">
-        <h2>About me</h2>
-        <p>Born and raised in Madrid. Predoctoral researcher at the Mathematical Sciences Institute of the National Scientific Research Council (ICMAT-CSIC). </p>
-    </section>
-
-    <section id="education">
-        <h2>Education</h2>
-        <p>...</p>
-    </section>
-    
-    <section id="projects">
-        <h2>Proyectos</h2>
-        <div class="project">
-            <h3>Proyecto 1</h3>
-            <p>Descripción breve del proyecto.</p>
-        </div>
-        <div class="project">
-            <h3>Proyecto 2</h3>
-            <p>Descripción breve del proyecto.</p>
+    <section class="max-w-4xl mx-auto py-10" id="projects">
+        <h2 class="text-3xl font-semibold text-center mb-6">Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-semibold">Project Title</h3>
+                <p class="text-gray-400 mt-2">Brief description of the project.</p>
+            </div>
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-semibold">Project Title</h3>
+                <p class="text-gray-400 mt-2">Brief description of the project.</p>
+            </div>
         </div>
     </section>
-
-    <section id="cv">
-        <h2>CV</h2>
-        <p></p>
+    
+    <section class="text-center py-10" id="contact">
+        <h2 class="text-3xl font-semibold mb-4">Contact</h2>
+        <p class="text-gray-400">Email: your.email@example.com</p>
+        <p class="text-gray-400">GitHub: github.com/yourusername</p>
     </section>
     
-    <section id="contact">
-        <h2>Contacto</h2>
-        <p>Puedes contactarme en daniel dot corrales at icmat dot es</p>
-    </section>
-    
-    <footer>
-        <p>&copy; 2025 Mi Nombre</p>
-    </footer>
+    <script>
+        gsap.to("#title", {opacity: 1, duration: 1, y: -10});
+        gsap.to("#tagline", {opacity: 1, duration: 1, delay: 0.5, y: -10});
+    </script>
 </body>
 </html>
