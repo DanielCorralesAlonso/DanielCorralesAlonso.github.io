@@ -12,6 +12,8 @@
         <div class="max-w-4xl mx-auto flex justify-between px-6">
             <h1 class="text-xl font-bold">Portfolio</h1>
             <div>
+                <a href="#about" class="text-gray-300 hover:text-white px-4">About</a>
+                <a href="#career" class="text-gray-300 hover:text-white px-4">Career</a>
                 <a href="#projects" class="text-gray-300 hover:text-white px-4">Projects</a>
                 <a href="#contact" class="text-gray-300 hover:text-white px-4">Contact</a>
             </div>
@@ -19,9 +21,20 @@
     </nav>
     
     <header class="text-center py-20" id="home">
+        <img src="your-portrait.jpg" alt="Your Portrait" class="w-40 h-40 mx-auto rounded-full opacity-0" id="portrait">
         <h1 class="text-5xl font-bold opacity-0" id="title">Your Name</h1>
         <p class="text-xl text-gray-400 opacity-0" id="tagline">Your Tagline or Profession</p>
     </header>
+    
+    <section class="max-w-4xl mx-auto py-10" id="about">
+        <h2 class="text-3xl font-semibold text-center mb-6">About Me</h2>
+        <p class="text-gray-400 text-center">Write a brief introduction about yourself, your background, and your interests.</p>
+    </section>
+    
+    <section class="max-w-4xl mx-auto py-10" id="career">
+        <h2 class="text-3xl font-semibold text-center mb-6">Career</h2>
+        <p class="text-gray-400 text-center">Highlight your career achievements, past experiences, and relevant work history.</p>
+    </section>
     
     <section class="max-w-4xl mx-auto py-10" id="projects">
         <h2 class="text-3xl font-semibold text-center mb-6">Projects</h2>
@@ -40,12 +53,18 @@
     <section class="text-center py-10" id="contact">
         <h2 class="text-3xl font-semibold mb-4">Contact</h2>
         <p class="text-gray-400">Email: your.email@example.com</p>
-        <p class="text-gray-400">GitHub: github.com/yourusername</p>
+        <div class="flex justify-center space-x-6 mt-4">
+            <a href="#" class="text-gray-300 hover:text-white">GitHub</a>
+            <a href="#" class="text-gray-300 hover:text-white">LinkedIn</a>
+            <a href="#" class="text-gray-300 hover:text-white">Twitter</a>
+            <a href="#" class="text-gray-300 hover:text-white">Instagram</a>
+        </div>
     </section>
     
     <script>
-        gsap.to("#title", {opacity: 1, duration: 1, y: -10});
-        gsap.to("#tagline", {opacity: 1, duration: 1, delay: 0.5, y: -10});
+        gsap.to("#portrait", {opacity: 1, duration: 1, y: -10});
+        gsap.to("#title", {opacity: 1, duration: 1, delay: 0.5, y: -10});
+        gsap.to("#tagline", {opacity: 1, duration: 1, delay: 1, y: -10});
     </script>
 </body>
 </html>
