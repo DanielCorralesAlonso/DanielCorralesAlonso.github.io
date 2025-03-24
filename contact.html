@@ -1,1 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="text-white bg-gray-900">
+
+    <nav class="bg-gray-800 py-4 shadow-md fixed w-full top-0">
+        <div class="max-w-4xl mx-auto flex justify-between px-6">
+            <h1 class="text-xl font-bold">Contact</h1>
+        </div>
+    </nav>
+
+    <header class="text-center py-20">
+        <h1 class="text-5xl font-bold">Get in Touch</h1>
+        <p class="text-xl text-gray-400">Feel free to reach out to me anytime!</p>
+    </header>
+
+    <!-- Contact Info Section -->
+    <section class="max-w-4xl mx-auto py-10 px-6">
+        <h2 class="text-3xl font-semibold text-center mb-6">My Contact Details</h2>
+        
+        <div class="mb-6 text-center">
+            <p class="text-gray-400">Work Address: <span class="text-white">123 Main St, City, Country</span></p>
+        </div>
+
+        <div class="mb-6 text-center">
+            <p class="text-gray-400">Connect with me:</p>
+            <div class="flex justify-center gap-6">
+                <a href="https://linkedin.com/in/your-profile" class="text-white hover:text-blue-500">LinkedIn</a>
+                <a href="https://github.com/your-profile" class="text-white hover:text-gray-500">GitHub</a>
+                <a href="https://twitter.com/your-profile" class="text-white hover:text-blue-400">Twitter</a>
+                <a href="mailto:your.email@example.com" class="text-white hover:text-gray-300">Email</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Email Form Section -->
+    <section class="max-w-4xl mx-auto py-10 px-6 bg-gray-800 rounded-lg shadow-lg">
+        <h2 class="text-3xl font-semibold text-center mb-6">Send Me an Email</h2>
+        <form action="mailto:your.email@example.com" method="POST" enctype="text/plain">
+            <div class="flex flex-col gap-4">
+                <input type="text" name="name" placeholder="Your Name" class="p-4 rounded-lg bg-gray-700 text-white" required>
+                <input type="email" name="email" placeholder="Your Email" class="p-4 rounded-lg bg-gray-700 text-white" required>
+                <textarea name="message" placeholder="Your Message" class="p-4 rounded-lg bg-gray-700 text-white" rows="5" required></textarea>
+                <button type="submit" class="bg-blue-600 p-4 rounded-lg text-white hover:bg-blue-700">Send Message</button>
+            </div>
+        </form>
+    </section>
+
+</body>
+</html>
 
