@@ -17,6 +17,24 @@
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
+        .moving-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.1) 5%, transparent 10%);
+            background-size: 50px 50px;
+            animation: movePattern 10s infinite alternate ease-in-out;
+        }
+        @keyframes movePattern {
+            0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+            25% { transform: translate(-30px, 20px) rotate(5deg) scale(1.1); }
+            50% { transform: translate(40px, -30px) rotate(-3deg) scale(0.9); }
+            75% { transform: translate(-20px, 40px) rotate(2deg) scale(1.05); }
+            100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+        }
         .timeline {
             position: relative;
             padding-left: 20px;
@@ -38,10 +56,17 @@
     </style>
 </head>
 <body class="text-white">
+    <div class="moving-pattern"></div>
     <nav class="bg-gray-800 py-4 shadow-md fixed w-full top-0">
         <div class="max-w-4xl mx-auto flex justify-between px-6">
             <h1 class="text-xl font-bold">Career</h1>
-            <a href="index.html" class="text-gray-400 hover:text-white">Home</a>
+            <div>
+                <a href="index.html" class="text-gray-300 hover:text-white px-4">Home</a>
+                <a href="about.html" class="text-gray-300 hover:text-white px-4">About</a>
+                <a href="career.html" class="text-gray-300 hover:text-white px-4">Career</a>
+                <a href="projects.html" class="text-gray-300 hover:text-white px-4">Projects</a>
+                <a href="contact.html" class="text-gray-300 hover:text-white px-4">Contact</a>
+            </div>
         </div>
     </nav>
     
