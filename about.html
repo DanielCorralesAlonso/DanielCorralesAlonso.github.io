@@ -1,1 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #53354a);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+            overflow-y: auto;
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+</head>
+<body class="text-white">
+    <nav class="bg-gray-800 py-4 shadow-md fixed w-full top-0">
+        <div class="max-w-4xl mx-auto flex justify-between px-6">
+            <h1 class="text-xl font-bold">About Me</h1>
+            <a href="index.html" class="text-gray-400 hover:text-white">Home</a>
+        </div>
+    </nav>
+    
+    <section class="max-w-4xl mx-auto py-20 px-6">
+        <h2 class="text-4xl font-bold">Who I Am</h2>
+        <p class="text-gray-300 mt-4">
+            I am [Your Name], a passionate professional in [your field]. My work focuses on [a short description of what you do].
+        </p>
+        
+        <h2 class="text-3xl font-semibold mt-8">Early Career</h2>
+        <p class="text-gray-300 mt-4">
+            I started my journey in [your early career background]. I have worked on projects involving [mention key skills or experiences].
+        </p>
+        
+        <h2 class="text-3xl font-semibold mt-8">Academic Profiles</h2>
+        <ul class="mt-4">
+            <li><a href="https://scholar.google.com/" class="text-blue-400 hover:underline">Google Scholar</a></li>
+            <li><a href="https://www.researchgate.net/" class="text-blue-400 hover:underline">ResearchGate</a></li>
+            <li><a href="https://orcid.org/" class="text-blue-400 hover:underline">ORCID</a></li>
+        </ul>
+    </section>
+</body>
+</html>
 
