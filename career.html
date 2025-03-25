@@ -5,12 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Career</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #53354a);
             background-size: 400% 400%;
             animation: gradientBG 10s ease infinite;
             overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
         @keyframes gradientBG {
             0% { background-position: 0% 50%; }
@@ -35,72 +39,182 @@
             75% { transform: translate(-20px, 40px) rotate(2deg) scale(1.05); }
             100% { transform: translate(0, 0) rotate(0deg) scale(1); }
         }
+        .container {
+            display: grid;
+            grid-template-columns: 20rem 1fr;
+            grid-template-areas: "sidebar main";
+            flex: 1;
+        }
+        aside {
+            grid-area: sidebar;
+            width: 20rem;
+            background-color: #2d3748;
+            height: 100vh;
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2.5rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        main {
+            grid-area: main;
+            margin-left: 20rem;
+            flex: 1;
+            padding: 2rem;
+            transition: all 0.3s ease-in-out;
+        }
+        .sidebar-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .sidebar-icons a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        .sidebar-icons a:hover {
+            color: #4a90e2;
+        }
+        @media (max-width: 1024px) {
+            aside {
+                width: 100%;
+                height: auto;
+                position: relative;
+                flex-direction: row;
+                justify-content: space-around;
+                padding: 1rem;
+            }
+            main {
+                margin-left: 0;
+                padding: 1rem;
+            }
+            .moving-pattern {
+                display: none;
+            }
+        }
+        @media (max-width: 768px) {
+            aside {
+                width: 100%;
+                height: auto;
+                position: relative;
+                flex-direction: row;
+                justify-content: space-around;
+                padding: 1rem;
+                top: 0;
+                left: 0;
+                z-index: 10;
+                box-shadow: none;
+            }
+            main {
+                margin-left: 0;
+                padding: 1rem;
+                margin-top: 5rem; /* Add margin to avoid overlap with the top navigation bar */
+                align-items: flex-start;
+            }
+        }
         .timeline {
             position: relative;
-            padding-left: 20px;
+            padding-left: 80px;
             border-left: 4px solid #4a90e2;
         }
         .timeline-item {
             position: relative;
-            margin-bottom: 20px;
-            padding-left: 20px;
+            margin-bottom: 60px;
+            padding-left: 40px;
         }
         .timeline-item img {
-            width: 50px;
-            height: 50px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             position: absolute;
-            left: -30px;
+            left: -120px;
             top: 0;
+            object-fit: contain;
+            background-color: white;
+        }
+        .timeline-item h3 {
+            margin-left: 120px;
+        }
+        .timeline-item p {
+            margin-left: 120px;
+        }
+        @media (max-width: 768px) {
+            .timeline-item img {
+                width: 60px;
+                height: 60px;
+                left: -80px;
+            }
+            .timeline-item h3, .timeline-item p {
+                margin-left: 80px;
+            }
         }
     </style>
 </head>
 <body class="text-white">
     <div class="moving-pattern"></div>
-    <nav class="bg-gray-800 py-4 shadow-md fixed w-full top-0">
-        <div class="max-w-4xl mx-auto flex justify-between px-6">
-            <h1 class="text-xl font-bold">Career</h1>
-            <div>
-                <a href="index.html" class="text-gray-300 hover:text-white px-4">Home</a>
-                <a href="about.html" class="text-gray-300 hover:text-white px-4">About</a>
-                <a href="career.html" class="text-gray-300 hover:text-white px-4">Career</a>
-                <a href="research.html" class="text-gray-300 hover:text-white px-4">Research</a>
-                <a href="projects.html" class="text-gray-300 hover:text-white px-4">Projects</a>
-                <a href="contact.html" class="text-gray-300 hover:text-white px-4">Contact</a>
+    <div class="container">
+        <aside class="w-80 bg-gray-800 h-screen fixed flex flex-col items-center py-10 shadow-lg">
+            <div class="w-36 h-36 rounded-full overflow-hidden border-4 border-white shadow-lg mb-4">
+                <img src="images/fotoportadapng.png" alt="Your Portrait" class="w-full h-full object-cover">
             </div>
-        </div>
-    </nav>
-    
-    <section class="max-w-4xl mx-auto py-20 px-6">
-        <h2 class="text-4xl font-bold mb-6">My Career Timeline</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <img src="images/logo-icmat.jpg" alt="University Logo">
-                <h3 class="text-2xl font-semibold">[Instituto de Ciencias Matemáticas]</h3>
-                <p class="text-gray-300">Currently pursuing a PhD in Statistics and Machine Learning.</p>
+            <h1 class="text-2xl font-bold text-white">Daniel Corrales Alonso</h1>
+            <p class="text-lg text-gray-400 text-center mt-2 px-4">PhD Student in Statistics and Machine Learning @ICMAT</p>
+
+            <nav class="mt-6 flex flex-col text-center w-full">
+                <a href="about.html" class="py-2 text-gray-300 hover:bg-gray-700">About Me</a>
+                <a href="career.html" class="py-2 text-gray-300 hover:bg-gray-700">Career</a>
+                <a href="research.html" class="py-2 text-gray-300 hover:bg-gray-700">Research</a>
+                <a href="projects.html" class="py-2 text-gray-300 hover:bg-gray-700">Projects</a>
+                <a href="contact.html" class="py-2 text-gray-300 hover:bg-gray-700">Contact</a>
+            </nav>
+
+            <div class="sidebar-icons">
+                <a href="https://scholar.google.com/citations?user=U4SMZ4QAAAAJ&hl=es" target="_blank">
+                    <i class="fas fa-graduation-cap"></i>
+                </a>
+                <a href="https://linkedin.com/in/daniel-corrales-alonso/" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/DanielCorralesAlonso" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
             </div>
-            <div class="timeline-item">
-                <img src="images/logo-icmat.jpg" alt="University Logo">
-                <h3 class="text-2xl font-semibold">[Instituto de Ciencias Matemáticas]</h3>
-                <p class="text-gray-300">Worked as research intern from 2023 to 2024.</p>
-            </div>
-            <div class="timeline-item">
-                <img src="images/uc3m.jpg" alt="University Logo">
-                <h3 class="text-2xl font-semibold">[Universidad Carlos III de Madrid]</h3>
-                <p class="text-gray-300">Studied MSc in Machine Learning for Health from 2023 to 2024.</p>
-            </div>
-            <div class="timeline-item">
-                <img src="images/Warwick.png" alt="Company Logo">
-                <h3 class="text-2xl font-semibold">[University of Warwick]</h3>
-                <p class="text-gray-300">Worked as [Your Position] from [Year] to [Year].</p>
-            </div>
-            <div class="timeline-item">
-                <img src="images/UCM-Logo.png" alt="Company Logo 2">
-                <h3 class="text-2xl font-semibold">[Universidad Complutense de Madrid]</h3>
-                <p class="text-gray-300">Worked as [Your Position] from [Year] to [Year].</p>
-            </div>
-        </div>
-    </section>
+        </aside>
+
+        <main>
+            <section class="max-w-4xl mx-auto py-20 px-6">
+                <h2 class="text-4xl font-bold mb-6">My Career Timeline</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <img src="images/logo-icmat.jpg" alt="Instituto de Ciencias Matemáticas">
+                        <h3 class="text-2xl font-semibold"><a href="https://www.icmat.es/">Instituto de Ciencias Matemáticas</a></h3>
+                        <p class="text-gray-300">Currently pursuing a PhD in Statistics and Machine Learning.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <img src="images/logo-icmat.jpg" alt="Instituto de Ciencias Matemáticas">
+                        <h3 class="text-2xl font-semibold"><a href="https://www.icmat.es/">Instituto de Ciencias Matemáticas</a></h3>
+                        <p class="text-gray-300">Worked as research intern from 2023 to 2024.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <img src="images/uc3m.jpg" alt="Universidad Carlos III de Madrid">
+                        <h3 class="text-2xl font-semibold"><a href="https://www.uc3m.es/">Universidad Carlos III de Madrid</a></h3>
+                        <p class="text-gray-300">Studied MSc in Machine Learning for Health from 2023 to 2024.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <img src="images/Warwick.png" alt="University of Warwick">
+                        <h3 class="text-2xl font-semibold"><a href="https://warwick.ac.uk/">University of Warwick</a></h3>
+                        <p class="text-gray-300">Worked as [Your Position] from [Year] to [Year].</p>
+                    </div>
+                    <div class="timeline-item">
+                        <img src="images/UCM-Logo.png" alt="Universidad Complutense de Madrid">
+                        <h3 class="text-2xl font-semibold"><a href="https://www.ucm.es/">Universidad Complutense de Madrid</a></h3>
+                        <p class="text-gray-300">Worked as [Your Position] from [Year] to [Year].</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
 </body>
 </html>
-
