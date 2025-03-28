@@ -6,6 +6,8 @@
     <title>About Me</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <style>
         body {
             background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #53354a);
@@ -169,30 +171,95 @@
         </aside>
 
         <main class="max-w-4xl mx-auto py-20 px-6">
-            <h2 class="text-4xl font-bold">Who I Am</h2>
-            <p class="text-gray-300 mt-4">
-                I am [Your Name], a passionate professional in [your field]. My work focuses on [a short description of what you do].
-            </p>
-            
-            <h2 class="text-3xl font-semibold mt-8">Early Career</h2>
-            <p class="text-gray-300 mt-4">
-                I started my journey in [your early career background]. I have worked on projects involving [mention key skills or experiences].
-            </p>
-            
-            <h2 class="text-3xl font-semibold mt-8">Academic Profiles</h2>
-            <div class="mt-4 flex gap-4">
-                <a href="https://scholar.google.com/citations?user=U4SMZ4QAAAAJ&hl=es" class="button text-white hover:text-blue-500">
-                    <i class="fas fa-graduation-cap"></i> Google Scholar
-                </a>
-                <a href="https://www.researchgate.net/" class="button text-white hover:text-blue-500">
-                    <i class="fas fa-flask"></i> ResearchGate
-                </a>
-                <a href="https://orcid.org/0009-0002-2860-2639" class="button text-white hover:text-blue-500">
-                    <i class="fas fa-id-badge"></i> ORCID
-                </a>
+            <h2 class="text-4xl font-bold text-center mb-10">Who I Am</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Background Card -->
+                <div class="bg-gray-800 text-white p-6 rounded-lg shadow-lg flex items-center gap-4">
+                    <i class="fas fa-user-graduate text-blue-500 text-4xl"></i>
+                    <div>
+                        <h3 class="text-xl font-semibold">Background</h3>
+                        <p class="text-gray-300">PhD student in Statistics and Machine Learning at ICMAT, Madrid, Spain.</p>
+                    </div>
+                </div>
+
+                <!-- Education Card -->
+                <div class="bg-gray-800 text-white p-6 rounded-lg shadow-lg flex items-center gap-4">
+                    <i class="fas fa-university text-green-500 text-4xl"></i>
+                    <div>
+                        <h3 class="text-xl font-semibold">Education</h3>
+                        <p class="text-gray-300">MSc in Machine Learning for Health (UC3M) and BSc in Mathematics and Statistics (UCM).</p>
+                    </div>
+                </div>
+
+                <!-- Previous Work Card -->
+                <div class="bg-gray-800 text-white p-6 rounded-lg shadow-lg flex items-center gap-4">
+                    <i class="fas fa-briefcase text-yellow-500 text-4xl"></i>
+                    <div>
+                        <h3 class="text-xl font-semibold">Previous Work</h3>
+                        <p class="text-gray-300">Research intern at BCAM (Minimax Risk Classifiers with &alpha;-losses) and JAE Intro scholarship at ICMAT (Bayesian decision analysis).</p>
+                    </div>
+                </div>
+
+                <!-- Current Research Card -->
+                <div class="bg-gray-800 text-white p-6 rounded-lg shadow-lg flex items-center gap-4">
+                    <i class="fas fa-flask text-purple-500 text-4xl"></i>
+                    <div>
+                        <h3 class="text-xl font-semibold">Current Research</h3>
+                        <p class="text-gray-300">Bayesian methods for adversarial machine learning and decision-making under uncertainty.</p>
+                    </div>
+                </div>
+
+                <!-- Interests Card -->
+                <div class="bg-gray-800 text-white p-6 rounded-lg shadow-lg flex items-center gap-4 md:col-span-2">
+                    <i class="fas fa-lightbulb text-red-500 text-4xl"></i>
+                    <div>
+                        <h3 class="text-xl font-semibold">Interests</h3>
+                        <p class="text-gray-300">Ethical AI, open-source contributions, interpretable machine learning, and interdisciplinary projects.</p>
+                    </div>
+                </div>
             </div>
+
+            <!-- Research Interests Section -->
+            <section class="mt-10">
+                <h3 class="text-3xl font-bold mb-4 text-center">Research Interests</h3>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <div class="research-interest bg-blue-600 text-white px-4 py-2 rounded-lg shadow-lg">Bayesian Methods</div>
+                    <div class="research-interest bg-blue-600 text-white px-4 py-2 rounded-lg shadow-lg">Adversarial Machine Learning</div>
+                    <div class="research-interest bg-blue-600 text-white px-4 py-2 rounded-lg shadow-lg">Decision-Making Under Uncertainty</div>
+                    <div class="research-interest bg-blue-600 text-white px-4 py-2 rounded-lg shadow-lg">Ethical AI</div>
+                    <div class="research-interest bg-blue-600 text-white px-4 py-2 rounded-lg shadow-lg">Interpretable Machine Learning</div>
+                    <div class="research-interest bg-blue-600 text-white px-4 py-2 rounded-lg shadow-lg">Healthcare Applications</div>
+                </div>
+            </section>
+
+            <!-- Funding Reference Section -->
+            <section class="mt-10">
+                <div class="bg-gray-800 text-white p-6 rounded-lg shadow-lg border-l-4 border-blue-500 flex items-center gap-4">
+                    <img src="images/Momentum-sinfondo.png" alt="Momentum" class="w-24 h-24 object-contain">
+                    <p class="text-gray-300 text-lg">
+                        Daniel Corrales Alonso is currently funded by the European Commission – NextGenerationEU, through Momentum CSIC Programme: "Develop Your Digital Talent".
+                    </p>
+                </div>
+            </section>
         </main>
     </div>
+
+    <!-- GSAP Animation -->
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.from(".research-interest", {
+            scrollTrigger: {
+                trigger: ".research-interest",
+                start: "top 80%", // Animation starts when the element is 80% in the viewport
+            },
+            duration: 1,
+            opacity: 0,
+            y: 50,
+            stagger: 0.2, // Adds a delay between each frame's animation
+            ease: "power3.out"
+        });
+    </script>
 </body>
 </html>
 

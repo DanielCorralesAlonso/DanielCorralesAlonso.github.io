@@ -59,7 +59,7 @@
         }
         main {
             grid-area: main;
-            margin-left: 20rem;
+            margin-left: 0;
             flex: 1;
             padding: 2rem;
             transition: all 0.3s ease-in-out;
@@ -114,42 +114,6 @@
                 align-items: flex-start;
             }
         }
-        .timeline {
-            position: relative;
-            padding-left: 80px;
-            border-left: 4px solid #4a90e2;
-        }
-        .timeline-item {
-            position: relative;
-            margin-bottom: 60px;
-            padding-left: 40px;
-        }
-        .timeline-item img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            position: absolute;
-            left: -120px;
-            top: 0;
-            object-fit: contain;
-            background-color: white;
-        }
-        .timeline-item h3 {
-            margin-left: 120px;
-        }
-        .timeline-item p {
-            margin-left: 120px;
-        }
-        @media (max-width: 768px) {
-            .timeline-item img {
-                width: 60px;
-                height: 60px;
-                left: -80px;
-            }
-            .timeline-item h3, .timeline-item p {
-                margin-left: 80px;
-            }
-        }
     </style>
 </head>
 <body class="text-white">
@@ -185,32 +149,76 @@
 
         <main>
             <section class="max-w-4xl mx-auto py-20 px-6">
-                <h2 class="text-4xl font-bold mb-6">My Career Timeline</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <img src="images/logo-icmat.jpg" alt="Instituto de Ciencias Matemáticas">
-                        <h3 class="text-2xl font-semibold"><a href="https://www.icmat.es/">Instituto de Ciencias Matemáticas</a></h3>
-                        <p class="text-gray-300">Currently pursuing a PhD in Statistics and Machine Learning.</p>
+                <h2 class="text-4xl font-bold mb-10 text-center">My Career Timeline</h2>
+                <div class="grid grid-cols-1 gap-8">
+                    <!-- Timeline Item 1 -->
+                    <div class="bg-gray-800 text-white p-6 rounded-lg shadow-lg flex items-center gap-6 hover:scale-105 transition-transform duration-300">
+                        <img src="images/logo-icmat.jpg" alt="Instituto de Ciencias Matemáticas" class="w-24 h-24 object-contain bg-white rounded-lg">
+                        <div>
+                            <h3 class="text-2xl font-semibold"><a href="https://www.icmat.es/" class="text-blue-400 hover:underline">Instituto de Ciencias Matemáticas</a></h3>
+                            <p class="text-gray-300 mt-2">Currently pursuing a PhD in Statistics and Machine Learning under the supervision of David Ríos Insua. My research focuses on Bayesian methods for adversarial machine learning.</p>
+                            <p class="text-blue-400 font-semibold mt-2">September 2024 - Present</p>
+                        </div>
                     </div>
-                    <div class="timeline-item">
-                        <img src="images/logo-icmat.jpg" alt="Instituto de Ciencias Matemáticas">
-                        <h3 class="text-2xl font-semibold"><a href="https://www.icmat.es/">Instituto de Ciencias Matemáticas</a></h3>
-                        <p class="text-gray-300">Worked as research intern from 2023 to 2024.</p>
+
+                    <!-- Timeline Item 2 -->
+                    <div class="bg-gray-800 text-white p-6 rounded-lg shadow-lg flex items-center gap-6 hover:scale-105 transition-transform duration-300">
+                        <img src="images/logo-icmat.jpg" alt="Instituto de Ciencias Matemáticas" class="w-24 h-24 object-contain bg-white rounded-lg">
+                        <div>
+                            <h3 class="text-2xl font-semibold"><a href="https://www.icmat.es/" class="text-blue-400 hover:underline">Instituto de Ciencias Matemáticas</a></h3>
+                            <p class="text-gray-300 mt-2">Worked as a research intern, contributing to projects on Bayesian decision analysis and its applications in healthcare.</p>
+                            <p class="text-blue-400 font-semibold mt-2">March 2024 - September 2024</p>
+                        </div>
                     </div>
-                    <div class="timeline-item">
-                        <img src="images/uc3m.jpg" alt="Universidad Carlos III de Madrid">
-                        <h3 class="text-2xl font-semibold"><a href="https://www.uc3m.es/">Universidad Carlos III de Madrid</a></h3>
-                        <p class="text-gray-300">Studied MSc in Machine Learning for Health from 2023 to 2024.</p>
+
+                    <!-- Timeline Item 3 -->
+                    <div class="bg-gray-800 text-white p-6 rounded-lg shadow-lg flex items-center gap-6 hover:scale-105 transition-transform duration-300">
+                        <img src="images/uc3m.jpg" alt="Universidad Carlos III de Madrid" class="w-24 h-24 object-contain bg-white rounded-lg">
+                        <div>
+                            <h3 class="text-2xl font-semibold"><a href="https://www.uc3m.es/" class="text-blue-400 hover:underline">Universidad Carlos III de Madrid</a></h3>
+                            <p class="text-gray-300 mt-2">Completed a MSc in Machine Learning for Health.</p>
+                            <p class="text-blue-400 font-semibold mt-2">September 2023 - July 2024</p>
+                        </div>
                     </div>
-                    <div class="timeline-item">
-                        <img src="images/Warwick.png" alt="University of Warwick">
-                        <h3 class="text-2xl font-semibold"><a href="https://warwick.ac.uk/">University of Warwick</a></h3>
-                        <p class="text-gray-300">Worked as [Your Position] from [Year] to [Year].</p>
+
+                    <!-- Timeline Item 4 -->
+                    <div class="bg-gray-800 text-white p-6 rounded-lg shadow-lg flex items-center gap-6 hover:scale-105 transition-transform duration-300">
+                        <img src="images/JAE_Intro.png" alt="JAE Intro - CSIC Scholarship" class="w-24 h-24 object-contain bg-white rounded-lg">
+                        <div>
+                            <h3 class="text-2xl font-semibold"><a href="https://sede.csic.gob.es/tramites/programa-jae" class="text-blue-400 hover:underline">JAE Intro - CSIC Scholarship</a></h3>
+                            <p class="text-gray-300 mt-2">Received an introduction to research scholarship from CSIC to work at the Mathematical Sciences Institute (ICMAT).</p>
+                            <p class="text-blue-400 font-semibold mt-2">March 2023 - September 2023</p>
+                        </div>
                     </div>
-                    <div class="timeline-item">
-                        <img src="images/UCM-Logo.png" alt="Universidad Complutense de Madrid">
-                        <h3 class="text-2xl font-semibold"><a href="https://www.ucm.es/">Universidad Complutense de Madrid</a></h3>
-                        <p class="text-gray-300">Worked as [Your Position] from [Year] to [Year].</p>
+
+                    <!-- Timeline Item 5 -->
+                    <div class="bg-gray-800 text-white p-6 rounded-lg shadow-lg flex items-center gap-6 hover:scale-105 transition-transform duration-300">
+                        <img src="images/logo-bcam-color-transparent-1-e1605021806572.png" alt="Basque Center for Applied Mathematics" class="w-24 h-24 object-contain bg-white rounded-lg">
+                        <div>
+                            <h3 class="text-2xl font-semibold"><a href="https://www.bcamath.org/es" class="text-blue-400 hover:underline">Basque Center for Applied Mathematics</a></h3>
+                            <p class="text-gray-300 mt-2">Worked as a research intern, contributing to projects on Minimax Risk Classifiers with &alpha;-losses.</p>
+                            <p class="text-blue-400 font-semibold mt-2">July 2022 - September 2022</p>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 6 -->
+                    <div class="bg-gray-800 text-white p-6 rounded-lg shadow-lg flex items-center gap-6 hover:scale-105 transition-transform duration-300">
+                        <img src="images/Warwick.png" alt="University of Warwick" class="w-24 h-24 object-contain bg-white rounded-lg">
+                        <div>
+                            <h3 class="text-2xl font-semibold"><a href="https://warwick.ac.uk/" class="text-blue-400 hover:underline">University of Warwick</a></h3>
+                            <p class="text-gray-300 mt-2">Erasmus Exchange Student Program at the Mathematics Department.</p>
+                            <p class="text-blue-400 font-semibold mt-2">September 2021 - June 2022</p>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 7 -->
+                    <div class="bg-gray-800 text-white p-6 rounded-lg shadow-lg flex items-center gap-6 hover:scale-105 transition-transform duration-300">
+                        <img src="images/UCM-Logo.png" alt="Universidad Complutense de Madrid" class="w-24 h-24 object-contain bg-white rounded-lg">
+                        <div>
+                            <h3 class="text-2xl font-semibold"><a href="https://www.ucm.es/" class="text-blue-400 hover:underline">Universidad Complutense de Madrid</a></h3>
+                            <p class="text-gray-300 mt-2">Completed a BSc in Mathematical Engineering.</p>
+                            <p class="text-blue-400 font-semibold mt-2">September 2018 - March 2023</p>
+                        </div>
                     </div>
                 </div>
             </section>
