@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/622/622669.png" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -32,7 +33,7 @@
             pointer-events: none;
             background-image: radial-gradient(rgba(255, 255, 255, 0.1) 5%, transparent 10%);
             background-size: 50px 50px;
-            animation: movePattern 10s infinite alternate ease-in-out;
+            animation: movePattern 0s infinite alternate ease-in-out;
         }
         @keyframes movePattern {
             0% { transform: translate(0, 0) rotate(0deg) scale(1); }
@@ -94,13 +95,12 @@
         .sidebar-icons a:hover {
             color: #4a90e2;
         }
+        /* Hide the mobile navigation bar by default */
+        header.mobile-nav {
+            display: none;
+            padding: 0.5rem 1rem; /* Reduce padding */
+        }
         @media (max-width: 1024px) {
-            .container {
-                grid-template-columns: 1fr;
-                grid-template-areas:
-                    "sidebar"
-                    "main";
-            }
             aside {
                 width: 100%;
                 height: auto;
@@ -112,34 +112,97 @@
             main {
                 margin-left: 0;
                 padding: 1rem;
-            }
-            .moving-pattern {
-                display: none;
             }
         }
         @media (max-width: 768px) {
-            aside {
-                width: 100%;
-                height: auto;
-                position: relative;
-                flex-direction: row;
-                justify-content: space-around;
-                padding: 1rem;
-                top: 0;
-                left: 0;
-                z-index: 10;
-                box-shadow: none;
+            /* Show the mobile navigation bar */
+            header.mobile-nav {
+                display: block;
+                background-color: #2d3748;
+                padding: 0.5rem 1rem; /* Reduce padding */
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             }
+            header.mobile-nav nav {
+                display: flex;
+                justify-content: space-around;
+                gap: 0.25rem; /* Reduce gap between links */
+            }
+
+            /* Hide the sidebar */
+            aside {
+                display: none !important;
+            }
+
+            /* Adjust the grid layout */
+            .container {
+                grid-template-columns: 1fr;
+            }
+
             main {
                 margin-left: 0;
                 padding: 1rem;
-                margin-top: 5rem; /* Add margin to avoid overlap with the top navigation bar */
-                align-items: flex-start;
+                margin-top: 0rem; /* Prevent overlap with the mobile nav */
+                padding-top: 0rem; /* Adjust top padding for smaller screens */
             }
+            .grid .w-24 {
+                display: none;
+            }
+        }
+
+        @media (max-width: 1024px) and (min-width: 768px) {
+            .grid .w-24 {
+                display: none;
+            }
+        }
+
+        /* Ensure links adapt to window size and never overlap */
+        header.mobile-nav nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.25rem; /* Reduce gap between links */
+        }
+
+        /* Add subtle border and padding for framed links */
+        header.mobile-nav nav a {
+            display: inline-block;
+            text-align: center;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            flex: 1 1 auto; /* Allow links to adjust their width */
+            max-width: 150px; /* Optional: Limit the maximum width of each link */
+            padding: 0.25rem 0.5rem; /* Reduce padding inside links */
+            font-size: 0.875rem; /* Slightly smaller font size */
+        }
+
+        header.mobile-nav nav a:hover {
+            background-color: #374151; /* Slightly darker background on hover */
         }
     </style>
 </head>
 <body class="text-white">
+    <header class="mobile-nav">
+        <div class="flex items-center justify-between mb-4">
+            <!-- Profile Picture and Name -->
+            <div class="flex items-center">
+                <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-white mr-2">
+                    <img src="images/fotoportadapng.png" alt="Your Portrait" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <h1 class="text-lg font-bold text-white">Daniel Corrales Alonso</h1>
+                    <p class="text-sm text-gray-300">PhD Student in Statistics and Machine Learning @ICMAT</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Links below the title -->
+        <nav class="flex flex-wrap justify-center gap-4 bg-gray-1000 p-2 rounded-lg">
+            <a href="index.html" class="text-gray-300 hover:text-white border border-gray-600 rounded-lg px-4 py-2">About Me</a>
+            <a href="career.html" class="text-gray-300 hover:text-white border border-gray-600 rounded-lg px-4 py-2">Career</a>
+            <a href="research.html" class="text-gray-300 hover:text-white border border-gray-600 rounded-lg px-4 py-2">Research</a>
+            <a href="projects.html" class="text-gray-300 hover:text-white border border-gray-600 rounded-lg px-4 py-2">Projects</a>
+            <a href="contact.html" class="text-gray-300 hover:text-white border border-gray-600 rounded-lg px-4 py-2">Contact</a>
+        </nav>
+    </header>
     <div class="moving-pattern"></div>
     <div class="container">
         <aside class="w-80 bg-gray-800 h-screen fixed flex flex-col items-center py-10 shadow-lg">
@@ -155,11 +218,15 @@
                 <a href="research.html" class="py-2 text-gray-300 hover:bg-gray-700">Research</a>
                 <a href="projects.html" class="py-2 text-gray-300 hover:bg-gray-700">Projects</a>
                 <a href="contact.html" class="py-2 text-gray-300 hover:bg-gray-700">Contact</a>
+
             </nav>
 
             <div class="sidebar-icons">
                 <a href="https://scholar.google.com/citations?user=U4SMZ4QAAAAJ&hl=es" target="_blank">
                     <i class="fas fa-graduation-cap"></i>
+                </a>
+                <a href="https://orcid.org/my-orcid?orcid=0009-0002-2860-2639" target="_blank">
+                    <i class="fab fa-orcid"></i>
                 </a>
                 <a href="https://linkedin.com/in/daniel-corrales-alonso/" target="_blank">
                     <i class="fab fa-linkedin"></i>
@@ -167,66 +234,69 @@
                 <a href="https://github.com/DanielCorralesAlonso" target="_blank">
                     <i class="fab fa-github"></i>
                 </a>
+                <a href="https://twitter.com/dcorralesalonso" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="mailto:daniel.corrales@icmat.es" class="social-link text-white hover:text-gray-300">
+                    <i class="fas fa-envelope"></i>
+                </a>
             </div>
         </aside>
 
-        <main class="max-w-4xl mx-auto py-20 px-6">
-            <h2 class="text-4xl font-bold text-center mb-10">Who I Am</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Background Card -->
-                <div class="bg-gray-800 text-white p-6 rounded-lg shadow-lg flex items-center gap-4">
-                    <i class="fas fa-user-graduate text-blue-500 text-4xl"></i>
-                    <div>
-                        <h3 class="text-xl font-semibold">Background</h3>
-                        <p class="text-gray-300">PhD student in Statistics and Machine Learning at ICMAT, Madrid, Spain.</p>
-                    </div>
+        <main>
+            <!-- About Me Section -->
+            <section class="max-w-10xl mx-auto py-20 px-6">
+                <h2 class="text-3xl font-bold text-center mb-8">About Me</h2>
+                <div class="bg-gray-800 text-white p-6 rounded-lg shadow-lg">
+                    <p class="text-lg text-gray-300 text-center leading-relaxed">
+                        Born and raised in Madrid, Spain, I am a <span class="text-blue-400 font-semibold">PhD student</span> at the <span>Mathematical Sciences Institute (ICMAT-CSIC)</span>. 
+                        My research focuses on developing <span class="text-blue-400 font-semibold">Bayesian methods for adversarial machine learning</span> as well as on work on <span class="text-blue-400 font-semibold">
+                        decision-making under uncertainty</span>. My goal is to develop robust, safe and secure machine learning algorithms that can be used in real-world applications.
+                    </p>
+                    
+                    <p class="text-lg text-gray-300 text-center leading-relaxed mt-4">
+                        So far, my main application area has been the field of <span class="text-blue-400 font-semibold">healthcare</span>, where I have worked on projects related to the <span class="text-blue-400 font-semibold">characterization of colorectal 
+                        cancer risk</span>, the development of <span class="text-blue-400 font-semibold">decision making tools for colorectal cancer screening programs</span> and the 
+                        <span class="text-blue-400 font-semibold">design of incentives</span> for increasing participation in these programs.
+                    </p>
+                        
+                    <p class="text-lg text-gray-300 text-center leading-relaxed mt-4">
+                        In no particular order, I spend my free time climbing, hiking, snowboarding, wandering around the city, reading novels, listening to podcasts, 
+                        learning German, cooking and traveling.
+                    </p>
                 </div>
+            </section>
 
-                <!-- Education Card -->
-                <div class="bg-gray-800 text-white p-6 rounded-lg shadow-lg flex items-center gap-4">
-                    <i class="fas fa-university text-green-500 text-4xl"></i>
-                    <div>
-                        <h3 class="text-xl font-semibold">Education</h3>
-                        <p class="text-gray-300">MSc in Machine Learning for Health (UC3M) and BSc in Mathematics and Statistics (UCM).</p>
-                    </div>
+            <!-- Education Section -->
+            <section class="max-w-7xl mx-auto py-8 px-6">
+                <h2 class="text-3xl font-bold text-center mb-6">Education</h2>
+                <div class="bg-gray-800 text-white p-6 rounded-lg shadow-lg">
+                    <ul class="list-disc list-inside text-lg text-gray-300">
+                        <li>
+                            <span class="font-semibold text-blue-400">PhD in Statistics and Machine Learning</span> - 
+                            ICMAT, Madrid, Spain (Current)
+                        </li>
+                        <li>
+                            <span class="font-semibold text-blue-400">Master in Machine Learning for Health</span> - 
+                            Universidad Carlos III de Madrid, Madrid, Spain
+                        </li>
+                        <li>
+                            <span class="font-semibold text-blue-400">Bachelor's in Mathematical Engineering</span> - 
+                            Universidad Complutense de Madrid, Madrid, Spain
+                        </li>
+                    </ul>
                 </div>
+            </section>
 
-                <!-- Previous Work Card -->
-                <div class="bg-gray-800 text-white p-6 rounded-lg shadow-lg flex items-center gap-4">
-                    <i class="fas fa-briefcase text-yellow-500 text-4xl"></i>
-                    <div>
-                        <h3 class="text-xl font-semibold">Previous Work</h3>
-                        <p class="text-gray-300">Research intern at BCAM (Minimax Risk Classifiers with &alpha;-losses) and JAE Intro scholarship at ICMAT (Bayesian decision analysis).</p>
-                    </div>
-                </div>
-
-                <!-- Current Research Card -->
-                <div class="bg-gray-800 text-white p-6 rounded-lg shadow-lg flex items-center gap-4">
-                    <i class="fas fa-flask text-purple-500 text-4xl"></i>
-                    <div>
-                        <h3 class="text-xl font-semibold">Current Research</h3>
-                        <p class="text-gray-300">Bayesian methods for adversarial machine learning and decision-making under uncertainty.</p>
-                    </div>
-                </div>
-
-                <!-- Interests Card -->
-                <div class="bg-gray-800 text-white p-6 rounded-lg shadow-lg flex items-center gap-4 md:col-span-2">
-                    <i class="fas fa-lightbulb text-red-500 text-4xl"></i>
-                    <div>
-                        <h3 class="text-xl font-semibold">Interests</h3>
-                        <p class="text-gray-300">Ethical AI, open-source contributions, interpretable machine learning, and interdisciplinary projects.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Research Interests Section -->
-            <section class="mt-10">
-                <h3 class="text-3xl font-bold mb-4 text-center">Research Interests</h3>
+            <!-- Interests Section -->
+            <section class="max-w-7xl mx-auto py-8 px-6">
+                <h2 class="text-3xl font-bold text-center mb-8">Interests</h2>
                 <div class="flex flex-wrap justify-center gap-4">
                     <div class="research-interest bg-blue-600 text-white px-4 py-2 rounded-lg shadow-lg">Bayesian Methods</div>
                     <div class="research-interest bg-blue-600 text-white px-4 py-2 rounded-lg shadow-lg">Adversarial Machine Learning</div>
-                    <div class="research-interest bg-blue-600 text-white px-4 py-2 rounded-lg shadow-lg">Decision-Making Under Uncertainty</div>
-                    <div class="research-interest bg-blue-600 text-white px-4 py-2 rounded-lg shadow-lg">Ethical AI</div>
+                    <div class="research-interest bg-blue-600 text-white px-4 py-2 rounded-lg shadow-lg">Decision-Making</div>
+                    <div class="research-interest bg-blue-600 text-white px-4 py-2 rounded-lg shadow-lg">AI Safety</div>
+                    <div class="research-interest bg-blue-600 text-white px-4 py-2 rounded-lg shadow-lg">Causality</div>
                     <div class="research-interest bg-blue-600 text-white px-4 py-2 rounded-lg shadow-lg">Interpretable Machine Learning</div>
                     <div class="research-interest bg-blue-600 text-white px-4 py-2 rounded-lg shadow-lg">Healthcare Applications</div>
                 </div>

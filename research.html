@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Research</title>
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #53354a);
             background-size: 400% 400%;
-            animation: gradientBG 10s ease infinite;
+            animation: gradientBG 10s ease infinite ;
             overflow-y: auto;
             display: flex;
             flex-direction: column;
@@ -31,7 +31,7 @@
             pointer-events: none;
             background-image: radial-gradient(rgba(255, 255, 255, 0.1) 5%, transparent 10%);
             background-size: 50px 50px;
-            animation: movePattern 10s alternate ease-in-out 1;
+            animation: movePattern 0s alternate ease-in-out 1;
         }
         @keyframes movePattern {
             0% { transform: translate(0, 0) rotate(0deg) scale(1); }
@@ -63,7 +63,8 @@
             grid-area: main;
             margin-left: 0;
             flex: 1;
-            padding: 2rem;
+            padding: 1rem; /* Reduce padding */
+            padding-top: 2rem; /* Adjust top padding to minimize space */
             transition: all 0.3s ease-in-out;
         }
         .sidebar-icons {
@@ -82,6 +83,7 @@
         /* Hide the mobile navigation bar by default */
         header.mobile-nav {
             display: none;
+            padding: 0.5rem 1rem; /* Reduce padding */
         }
         @media (max-width: 1024px) {
             aside {
@@ -102,12 +104,13 @@
             header.mobile-nav {
                 display: block;
                 background-color: #2d3748;
-                padding: 1rem;
+                padding: 0.5rem 1rem; /* Reduce padding */
                 box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             }
             header.mobile-nav nav {
                 display: flex;
                 justify-content: space-around;
+                gap: 0.25rem; /* Reduce gap between links */
             }
 
             /* Hide the sidebar */
@@ -123,7 +126,8 @@
             main {
                 margin-left: 0;
                 padding: 1rem;
-                margin-top: 1rem; /* Prevent overlap with the mobile nav */
+                margin-top: 0rem; /* Prevent overlap with the mobile nav */
+                padding-top: 0rem; /* Adjust top padding for smaller screens */
             }
             .grid .w-24 {
                 display: none;
@@ -141,7 +145,7 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 0.5rem; /* Adjust gap for better spacing on smaller screens */
+            gap: 0.25rem; /* Reduce gap between links */
         }
 
         /* Add subtle border and padding for framed links */
@@ -151,10 +155,18 @@
             transition: background-color 0.3s ease, color 0.3s ease;
             flex: 1 1 auto; /* Allow links to adjust their width */
             max-width: 150px; /* Optional: Limit the maximum width of each link */
+            padding: 0.25rem 0.5rem; /* Reduce padding inside links */
+            font-size: 0.875rem; /* Slightly smaller font size */
         }
 
         header.mobile-nav nav a:hover {
             background-color: #374151; /* Slightly darker background on hover */
+        }
+
+        /* Ensure article links wrap properly on narrow screens */
+        .article-section a {
+            word-wrap: break-word; /* Allow long links to break into multiple lines */
+            overflow-wrap: break-word;
         }
         
     </style>
@@ -175,7 +187,7 @@
         </div>
 
         <!-- Links below the title -->
-        <nav class="flex flex-wrap justify-center gap-4 bg-gray-800 p-2 rounded-lg">
+        <nav class="flex flex-wrap justify-center gap-4 bg-gray-1000 p-2 rounded-lg">
             <a href="index.html" class="text-gray-300 hover:text-white border border-gray-600 rounded-lg px-4 py-2">About Me</a>
             <a href="career.html" class="text-gray-300 hover:text-white border border-gray-600 rounded-lg px-4 py-2">Career</a>
             <a href="research.html" class="text-gray-300 hover:text-white border border-gray-600 rounded-lg px-4 py-2">Research</a>
@@ -205,19 +217,28 @@
                 <a href="https://scholar.google.com/citations?user=U4SMZ4QAAAAJ&hl=es" target="_blank">
                     <i class="fas fa-graduation-cap"></i>
                 </a>
+                <a href="https://orcid.org/my-orcid?orcid=0009-0002-2860-2639" target="_blank">
+                    <i class="fab fa-orcid"></i>
+                </a>
                 <a href="https://linkedin.com/in/daniel-corrales-alonso/" target="_blank">
                     <i class="fab fa-linkedin"></i>
                 </a>
                 <a href="https://github.com/DanielCorralesAlonso" target="_blank">
                     <i class="fab fa-github"></i>
                 </a>
+                <a href="https://twitter.com/dcorralesalonso" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="mailto:daniel.corrales@icmat.es" class="social-link text-white hover:text-gray-300">
+                    <i class="fas fa-envelope"></i>
+                </a>
             </div>
         </aside>
 
         <main>
-            <section class="max-w-10xl mx-auto py-20 px-6">
+            <section class="max-w-10xl mx-auto py-20 px-6 article-section">
                 <!-- Articles Section -->
-                <h2 class="text-3xl font-bold mt-12 mb-6">Articles</h2>
+                <h2 class="text-3xl font-bold text-center mb-8">Articles</h2>
                 <div class="grid grid-cols-1 gap-6">
                     <!-- Article Card 1 -->
 
@@ -253,7 +274,7 @@
                 </div>
 
                 <!-- Conferences Section -->
-                <h2 class="text-3xl font-bold mt-12 mb-6">Conferences</h2>
+                <h2 class="text-3xl font-bold text-center mb-8 mt-20">Conferences</h2>
                 <div class="grid grid-cols-1 gap-6">
                     <!-- Conference Card 1 -->
                     <div class="bg-gray-800 text-white p-6 rounded-lg shadow-lg flex items-center gap-4 hover:scale-105 transition-transform duration-300">

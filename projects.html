@@ -31,7 +31,7 @@
             pointer-events: none;
             background-image: radial-gradient(rgba(255, 255, 255, 0.1) 5%, transparent 10%);
             background-size: 50px 50px;
-            animation: movePattern 10s infinite alternate ease-in-out;
+            animation: movePattern 0s infinite alternate ease-in-out;
         }
         @keyframes movePattern {
             0% { transform: translate(0, 0) rotate(0deg) scale(1); }
@@ -89,6 +89,11 @@
             }
         }
         
+        /* Hide the mobile navigation bar by default */
+        header.mobile-nav {
+            display: none;
+            padding: 0.5rem 1rem; /* Reduce padding */
+        }
         @media (max-width: 1024px) {
             aside {
                 width: 100%;
@@ -102,28 +107,69 @@
                 margin-left: 0;
                 padding: 1rem;
             }
-            .moving-pattern {
-                display: none;
-            }
         }
         @media (max-width: 768px) {
-            aside {
-                width: 100%;
-                height: auto;
-                position: relative;
-                flex-direction: row;
-                justify-content: space-around;
-                padding: 1rem;
-                top: 0;
-                left: 0;
-                z-index: 10;
-                box-shadow: none;
+            /* Show the mobile navigation bar */
+            header.mobile-nav {
+                display: block;
+                background-color: #2d3748;
+                padding: 0.5rem 1rem; /* Reduce padding */
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             }
+            header.mobile-nav nav {
+                display: flex;
+                justify-content: space-around;
+                gap: 0.25rem; /* Reduce gap between links */
+            }
+
+            /* Hide the sidebar */
+            aside {
+                display: none !important;
+            }
+
+            /* Adjust the grid layout */
+            .container {
+                grid-template-columns: 1fr;
+            }
+
             main {
                 margin-left: 0;
                 padding: 1rem;
-                margin-top: 5rem; /* Add margin to avoid overlap with the top navigation bar */
+                margin-top: 0rem; /* Prevent overlap with the mobile nav */
+                padding-top: 0rem; /* Adjust top padding for smaller screens */
             }
+            .grid .w-24 {
+                display: none;
+            }
+        }
+
+        @media (max-width: 1024px) and (min-width: 768px) {
+            .grid .w-24 {
+                display: none;
+            }
+        }
+
+        /* Ensure links adapt to window size and never overlap */
+        header.mobile-nav nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.25rem; /* Reduce gap between links */
+        }
+
+        /* Add subtle border and padding for framed links */
+        header.mobile-nav nav a {
+            display: inline-block;
+            text-align: center;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            flex: 1 1 auto; /* Allow links to adjust their width */
+            max-width: 150px; /* Optional: Limit the maximum width of each link */
+            padding: 0.25rem 0.5rem; /* Reduce padding inside links */
+            font-size: 0.875rem; /* Slightly smaller font size */
+        }
+
+        header.mobile-nav nav a:hover {
+            background-color: #374151; /* Slightly darker background on hover */
         }
         .button {
             display: inline-flex;
@@ -152,6 +198,29 @@
     </style>
 </head>
 <body class="text-white">
+    <header class="mobile-nav">
+        <div class="flex items-center justify-between mb-4">
+            <!-- Profile Picture and Name -->
+            <div class="flex items-center">
+                <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-white mr-2">
+                    <img src="images/fotoportadapng.png" alt="Your Portrait" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <h1 class="text-lg font-bold text-white">Daniel Corrales Alonso</h1>
+                    <p class="text-sm text-gray-300">PhD Student in Statistics and Machine Learning @ICMAT</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Links below the title -->
+        <nav class="flex flex-wrap justify-center gap-4 bg-gray-1000 p-2 rounded-lg">
+            <a href="index.html" class="text-gray-300 hover:text-white border border-gray-600 rounded-lg px-4 py-2">About Me</a>
+            <a href="career.html" class="text-gray-300 hover:text-white border border-gray-600 rounded-lg px-4 py-2">Career</a>
+            <a href="research.html" class="text-gray-300 hover:text-white border border-gray-600 rounded-lg px-4 py-2">Research</a>
+            <a href="projects.html" class="text-gray-300 hover:text-white border border-gray-600 rounded-lg px-4 py-2">Projects</a>
+            <a href="contact.html" class="text-gray-300 hover:text-white border border-gray-600 rounded-lg px-4 py-2">Contact</a>
+        </nav>
+    </header>
     <div class="moving-pattern"></div>
     <div class="container">
         <aside class="w-80 bg-gray-800 h-screen fixed flex flex-col items-center py-10 shadow-lg">
@@ -173,81 +242,94 @@
                 <a href="https://scholar.google.com/citations?user=U4SMZ4QAAAAJ&hl=es" target="_blank">
                     <i class="fas fa-graduation-cap"></i>
                 </a>
+                <a href="https://orcid.org/my-orcid?orcid=0009-0002-2860-2639" target="_blank">
+                    <i class="fab fa-orcid"></i>
+                </a>
                 <a href="https://linkedin.com/in/daniel-corrales-alonso/" target="_blank">
                     <i class="fab fa-linkedin"></i>
                 </a>
                 <a href="https://github.com/DanielCorralesAlonso" target="_blank">
                     <i class="fab fa-github"></i>
                 </a>
+                <a href="https://twitter.com/dcorralesalonso" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="mailto:daniel.corrales@icmat.es" class="social-link text-white hover:text-gray-300">
+                    <i class="fas fa-envelope"></i>
+                </a>
             </div>
         </aside>
 
         <main>
-            <div class="projects-grid max-w-4xl mx-auto py-20">
-                <div class="bg-gray-800 p-6 rounded-lg shadow-lg project-card">
-                    <img src="images/id_24_01_page-0001 (1).jpg" alt="Decision Support Model for CRC Screening" class="w-full h-40 object-cover rounded-lg">
-                    <h2 class="text-2xl font-semibold mt-4">Decision Support Model for CRC Screening</h2>
-                    <p class="text-gray-400"> This work provides a decision analysis-based approach to personalized CRC screening, supporting decisions concerning whether and which screening method to consider and/or whether a colonoscopy should be administered.</p>
-                    <div class="mt-4 project-buttons">
-                        <a href="https://doi.org/10.48550/arXiv.2502.21210" class="button text-white hover:text-blue-500">
-                            <i class="fas fa-file-alt"></i> Paper
-                        </a>
-                        <a href="https://github.com/DanielCorralesAlonso/Decision_Model_Screening_CRC" class="button text-white hover:text-gray-500">
-                            <i class="fab fa-github"></i> GitHub
-                        </a>
+            <section class="max-w-10xl mx-auto py-20 px-6 article-section">
+                <!-- Articles Section -->
+                <h2 class="text-3xl font-bold text-center mb-8">Projects</h2>
+                <div class="projects-grid max-w-4xl mx-auto mb-8">
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-lg project-card hover:scale-105 transition-transform duration-300">
+                        <img src="images/id_24_01_page-0001 (1).jpg" alt="Decision Support Model for CRC Screening" class="w-full h-40 object-cover rounded-lg">
+                        <h2 class="text-2xl font-semibold mt-4">Decision Support Model for CRC Screening</h2>
+                        <p class="text-gray-400"> This work provides a decision analysis-based approach to personalized CRC screening, supporting decisions concerning whether and which screening method to consider and/or whether a colonoscopy should be administered.</p>
+                        <div class="mt-4 project-buttons">
+                            <a href="https://doi.org/10.48550/arXiv.2502.21210" class="button text-white hover:text-blue-500">
+                                <i class="fas fa-file-alt"></i> Paper
+                            </a>
+                            <a href="https://github.com/DanielCorralesAlonso/Decision_Model_Screening_CRC" class="button text-white hover:text-gray-500">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="bg-gray-800 p-6 rounded-lg shadow-lg project-card">
-                    <div class="bg-white rounded-lg shadow-lg">
-                        <img src="images/point_risk_map_men_Age_BMI.png" alt="Colorectal Cancer Risk Mapping" class="w-full h-40 object-cover rounded-lg">
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-lg project-card hover:scale-105 transition-transform duration-300">
+                        <div class="bg-white rounded-lg shadow-lg">
+                            <img src="images/point_risk_map_men_Age_BMI.png" alt="Colorectal Cancer Risk Mapping" class="w-full h-40 object-cover rounded-lg">
+                        </div>
+                        <h2 class="text-2xl font-semibold mt-4">Colorectal Cancer Risk Mapping</h2>
+                        <p class="text-gray-400">A graphical CRC risk mapping tool is developed from a Bayesian network model and used to segment the population into risk subgroups according to variables of interest.</p>
+                        <div class="mt-4 project-buttons">
+                            <a href="https://doi.org/10.1016/j.cmpb.2024.108407" class="button text-white hover:text-blue-500">
+                                <i class="fas fa-file-alt"></i> Paper
+                            </a>
+                            <a href="https://github.com/DanielCorralesAlonso/CRC_Risk_BN" class="button text-white hover:text-gray-500">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
                     </div>
-                    <h2 class="text-2xl font-semibold mt-4">Colorectal Cancer Risk Mapping</h2>
-                    <p class="text-gray-400">A graphical CRC risk mapping tool is developed from a Bayesian network model and used to segment the population into risk subgroups according to variables of interest.</p>
-                    <div class="mt-4 project-buttons">
-                        <a href="https://doi.org/10.1016/j.cmpb.2024.108407" class="button text-white hover:text-blue-500">
-                            <i class="fas fa-file-alt"></i> Paper
-                        </a>
-                        <a href="https://github.com/DanielCorralesAlonso/CRC_Risk_BN" class="button text-white hover:text-gray-500">
-                            <i class="fab fa-github"></i> GitHub
-                        </a>
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-lg project-card hover:scale-105 transition-transform duration-300">
+                        <img src="images/001.jpg" alt="Project 3" class="w-full h-40 object-cover rounded-lg">
+                        <h2 class="text-2xl font-semibold mt-4">Sjögren Syndrome Deep Learning Project</h2>
+                        <p class="text-gray-400">Classifying ultrasound (US) images of the parotid glands (PGs) and submandibular glands (SMGs) using the OMERACT scale</p>
+                        <div class="mt-4 project-buttons">
+                            <a href="https://github.com/AI4RadMic/SjogrenSyndromAI4RadMicDaniPablo" class="button text-white hover:text-gray-500">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="bg-gray-800 p-6 rounded-lg shadow-lg project-card">
-                    <img src="images/001.jpg" alt="Project 3" class="w-full h-40 object-cover rounded-lg">
-                    <h2 class="text-2xl font-semibold mt-4">Sjögren Syndrome Deep Learning Project</h2>
-                    <p class="text-gray-400">Classifying ultrasound (US) images of the parotid glands (PGs) and submandibular glands (SMGs) using the OMERACT scale</p>
-                    <div class="mt-4 project-buttons">
-                        <a href="https://github.com/AI4RadMic/SjogrenSyndromAI4RadMicDaniPablo" class="button text-white hover:text-gray-500">
-                            <i class="fab fa-github"></i> GitHub
-                        </a>
-                    </div>
-                </div>
 
-                <div class="bg-gray-800 p-6 rounded-lg shadow-lg project-card">
-                    <img src="images/second_pass.png" alt="Project 4" class="w-full h-40 object-cover rounded-lg">
-                    <h2 class="text-2xl font-semibold mt-4">Deep Image Blending</h2>
-                    <p class="text-gray-400">Deep Image Blending attempts to optimize a Poison blending loss, a style loss anda content loss computed from a VGG pretrained network and then reconstructs the
-                        pixels by optimizing a loss function using a
-                        LBFGS solver.</p>
-                    <div class="mt-4 project-buttons">
-                        <a href="https://github.com/DanielCorralesAlonso/DeepImageBlending" class="button text-white hover:text-gray-500">
-                            <i class="fab fa-github"></i> GitHub
-                        </a>
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-lg project-card hover:scale-105 transition-transform duration-300">
+                        <img src="images/second_pass.png" alt="Project 4" class="w-full h-40 object-cover rounded-lg">
+                        <h2 class="text-2xl font-semibold mt-4">Deep Image Blending</h2>
+                        <p class="text-gray-400">Deep Image Blending attempts to optimize a Poison blending loss, a style loss anda content loss computed from a VGG pretrained network and then reconstructs the
+                            pixels by optimizing a loss function using a
+                            LBFGS solver.</p>
+                        <div class="mt-4 project-buttons">
+                            <a href="https://github.com/DanielCorralesAlonso/DeepImageBlending" class="button text-white hover:text-gray-500">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
                     </div>
-                </div>
 
-                <div class="bg-gray-800 p-6 rounded-lg shadow-lg project-card">
-                    <img src="images/fig_h_5_D_500.jpg" alt="Project 3" class="w-full h-40 object-cover rounded-lg">
-                    <h2 class="text-2xl font-semibold mt-4">Minimax risk classifier with &alpha;-losses</h2>
-                    <p class="text-gray-400">We present a series of algorithms for solving supervised classification problems based on decision theory
-                        and convex optimization.</p>
-                    <div class="mt-4 project-buttons">
-                        <a href="https://github.com/DanielCorralesAlonso/TFG" class="button text-white hover:text-gray-500">
-                            <i class="fab fa-github"></i> GitHub
-                        </a>
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-lg project-card hover:scale-105 transition-transform duration-300">
+                        <img src="images/fig_h_5_D_500.jpg" alt="Project 3" class="w-full h-40 object-cover rounded-lg">
+                        <h2 class="text-2xl font-semibold mt-4">Minimax risk classifier with &alpha;-losses</h2>
+                        <p class="text-gray-400">We present a series of algorithms for solving supervised classification problems based on decision theory
+                            and convex optimization.</p>
+                        <div class="mt-4 project-buttons">
+                            <a href="https://github.com/DanielCorralesAlonso/TFG" class="button text-white hover:text-gray-500">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </section>
         </main>
     </div>
 </body>
