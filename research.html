@@ -125,12 +125,36 @@
                 padding: 1rem;
                 margin-top: 1rem; /* Prevent overlap with the mobile nav */
             }
+            .grid .w-24 {
+                display: none;
+            }
         }
 
         @media (max-width: 1024px) and (min-width: 768px) {
             .grid .w-24 {
                 display: none;
             }
+        }
+
+        /* Ensure links adapt to window size and never overlap */
+        header.mobile-nav nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem; /* Adjust gap for better spacing on smaller screens */
+        }
+
+        /* Add subtle border and padding for framed links */
+        header.mobile-nav nav a {
+            display: inline-block;
+            text-align: center;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            flex: 1 1 auto; /* Allow links to adjust their width */
+            max-width: 150px; /* Optional: Limit the maximum width of each link */
+        }
+
+        header.mobile-nav nav a:hover {
+            background-color: #374151; /* Slightly darker background on hover */
         }
         
     </style>
@@ -148,48 +172,17 @@
                     <p class="text-sm text-gray-300">PhD Student in Statistics and Machine Learning @ICMAT</p>
                 </div>
             </div>
-
-            <!-- Dropdown Button -->
-            <div class="relative">
-                <button id="dropdownButton" class="text-gray-300 hover:text-white focus:outline-none">
-                    <i class="fas fa-bars text-2xl"></i>
-                </button>
-            </div>
         </div>
 
-        <!-- Dropdown Menu -->
-        <nav id="dropdownMenu" class="hidden bg-gray-800 w-full z-50 flex flex-col items-center">
-            <a href="index.html" class="block py-2 text-gray-300 hover:bg-gray-700 hover:text-white w-full text-center">About Me</a>
-            <a href="career.html" class="block py-2 text-gray-300 hover:bg-gray-700 hover:text-white w-full text-center">Career</a>
-            <a href="research.html" class="block py-2 text-gray-300 hover:bg-gray-700 hover:text-white w-full text-center">Research</a>
-            <a href="projects.html" class="block py-2 text-gray-300 hover:bg-gray-700 hover:text-white w-full text-center">Projects</a>
-            <a href="contact.html" class="block py-2 text-gray-300 hover:bg-gray-700 hover:text-white w-full text-center">Contact</a>
+        <!-- Links below the title -->
+        <nav class="flex flex-wrap justify-center gap-4 bg-gray-800 p-2 rounded-lg">
+            <a href="index.html" class="text-gray-300 hover:text-white border border-gray-600 rounded-lg px-4 py-2">About Me</a>
+            <a href="career.html" class="text-gray-300 hover:text-white border border-gray-600 rounded-lg px-4 py-2">Career</a>
+            <a href="research.html" class="text-gray-300 hover:text-white border border-gray-600 rounded-lg px-4 py-2">Research</a>
+            <a href="projects.html" class="text-gray-300 hover:text-white border border-gray-600 rounded-lg px-4 py-2">Projects</a>
+            <a href="contact.html" class="text-gray-300 hover:text-white border border-gray-600 rounded-lg px-4 py-2">Contact</a>
         </nav>
     </header>
-
-    <script>
-        // Ensure the script runs after the DOM is fully loaded
-        document.addEventListener('DOMContentLoaded', () => {
-            const dropdownButton = document.getElementById('dropdownButton');
-            const dropdownMenu = document.getElementById('dropdownMenu');
-
-            // Check if the elements exist
-            if (dropdownButton && dropdownMenu) {
-                dropdownButton.addEventListener('click', () => {
-                    dropdownMenu.classList.toggle('hidden');
-                });
-
-                // Close the dropdown menu when clicking outside
-                document.addEventListener('click', (event) => {
-                    if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
-                        dropdownMenu.classList.add('hidden');
-                    }
-                });
-            } else {
-                console.error('Dropdown button or menu not found in the DOM.');
-            }
-        });
-    </script>
 
     <div class="moving-pattern"></div>
     <div class="container">
@@ -224,7 +217,7 @@
         <main>
             <section class="max-w-10xl mx-auto py-20 px-6">
                 <!-- Articles Section -->
-                <h2 class="text-3xl font-bold mb-6">Articles</h2>
+                <h2 class="text-3xl font-bold mt-12 mb-6">Articles</h2>
                 <div class="grid grid-cols-1 gap-6">
                     <!-- Article Card 1 -->
 
