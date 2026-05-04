@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daniel Corrales Alonso</title>
+    <title>Daniel Corrales Alonso | CV</title>
     <link rel="icon" href="images/Gemini_Generated_Image_ejih3gejih3gejih.png" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <style>
         body {
             background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #53354a);
@@ -63,22 +62,8 @@
             grid-area: main;
             margin-left: 0;
             flex: 1;
-            padding: 1rem; /* Reduce padding */
-            padding-top: 2rem; /* Adjust top padding to minimize space */
+            padding: 2rem;
             transition: all 0.3s ease-in-out;
-        }
-        .social-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            border: 2px solid transparent;
-            border-radius: 0.5rem;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-        .social-link:hover {
-            transform: scale(1.1);
-            border-color: #ffffff;
         }
         .sidebar-icons {
             display: flex;
@@ -95,7 +80,19 @@
         }
         header.mobile-nav {
             display: none;
-            padding: 0.5rem 1rem; /* Reduce padding */
+            padding: 0.5rem 1rem;
+        }
+        .pdf-frame {
+            width: 100%;
+            min-height: 78vh;
+            border: 0;
+            border-radius: 1rem;
+            background: #111827;
+        }
+        .pdf-shell {
+            background: rgba(17, 24, 39, 0.88);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
         }
         @media (max-width: 1024px) {
             aside {
@@ -112,77 +109,39 @@
             }
         }
         @media (max-width: 768px) {
-            /* Show the mobile navigation bar */
             header.mobile-nav {
                 display: block;
                 background-color: #2d3748;
-                padding: 0.5rem 1rem; /* Reduce padding */
+                padding: 0.5rem 1rem;
                 box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             }
             header.mobile-nav nav {
                 display: flex;
-                justify-content: space-around;
-                gap: 0.25rem; /* Reduce gap between links */
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 0.25rem;
             }
-
-            /* Hide the sidebar */
             aside {
                 display: none !important;
             }
-
-            /* Adjust the grid layout */
             .container {
                 grid-template-columns: 1fr;
             }
-
             main {
                 margin-left: 0;
                 padding: 1rem;
-                margin-top: 0rem; /* Prevent overlap with the mobile nav */
-                padding-top: 0rem; /* Adjust top padding for smaller screens */
+                margin-top: 0;
+                padding-top: 0;
             }
-            .grid .w-24 {
-                display: none;
-            }
-        }
-
-        @media (max-width: 1024px) and (min-width: 768px) {
-            .grid .w-24 {
-                display: none;
-            }
-        }
-
-        /* Ensure links adapt to window size and never overlap */
-        header.mobile-nav nav {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 0.25rem; /* Reduce gap between links */
-        }
-
-        /* Add subtle border and padding for framed links */
-        header.mobile-nav nav a {
-            display: inline-block;
-            text-align: center;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            flex: 1 1 auto; /* Allow links to adjust their width */
-            max-width: 150px; /* Optional: Limit the maximum width of each link */
-            padding: 0.25rem 0.5rem; /* Reduce padding inside links */
-            font-size: 0.875rem; /* Slightly smaller font size */
-        }
-
-        header.mobile-nav nav a:hover {
-            background-color: #374151; /* Slightly darker background on hover */
         }
     </style>
 </head>
-<body class="text-white overflow-x-hidden"> <!-- Prevent horizontal scrolling -->
+<body class="text-white">
     <header class="mobile-nav">
         <div class="flex items-center justify-between mb-4">
-            <!-- Profile Picture and Name -->
             <div class="flex items-center">
                 <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-white mr-2">
-                    <img src="images/fotoportadapng.png" alt="Your Portrait" class="w-full h-full object-cover">
+                    <img src="images/fotoportadapng.png" alt="Daniel Corrales Alonso portrait" class="w-full h-full object-cover">
                 </div>
                 <div>
                     <h1 class="text-md font-bold text-white">Daniel Corrales Alonso</h1>
@@ -190,8 +149,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- Links below the title -->
         <nav class="flex flex-wrap justify-center gap-4 bg-gray-1000 p-2 rounded-lg">
             <a href="index.html" class="text-gray-300 hover:text-white border border-gray-600 rounded-lg px-4 py-2">About Me</a>
             <a href="career.html" class="text-gray-300 hover:text-white border border-gray-600 rounded-lg px-4 py-2">Career</a>
@@ -205,7 +162,7 @@
     <div class="container">
         <aside class="w-80 bg-gray-800 h-screen fixed flex flex-col items-center py-10 shadow-lg">
             <div class="w-36 h-36 rounded-full overflow-hidden border-4 border-white shadow-lg mb-4">
-                <img src="images/fotoportadapng.png" alt="Your Portrait" class="w-full h-full object-cover">
+                <img src="images/fotoportadapng.png" alt="Daniel Corrales Alonso portrait" class="w-full h-full object-cover">
             </div>
             <h1 class="text-2xl font-bold text-white">Daniel Corrales Alonso</h1>
             <p class="text-md text-gray-400 text-center mt-2 px-4">PhD Student in Statistics and Machine Learning @ICMAT</p>
@@ -217,76 +174,65 @@
                 <a href="projects.html" class="py-2 text-gray-300 hover:bg-gray-700">Projects</a>
                 <a href="cv.html" class="py-2 text-gray-300 hover:bg-gray-700">CV</a>
                 <a href="contact.html" class="py-2 text-gray-300 hover:bg-gray-700">Contact</a>
-                
             </nav>
 
             <div class="sidebar-icons">
-                <a href="https://scholar.google.com/citations?user=U4SMZ4QAAAAJ&hl=es" target="_blank">
+                <a href="https://scholar.google.com/citations?user=U4SMZ4QAAAAJ&hl=es" target="_blank" rel="noreferrer noopener">
                     <i class="fas fa-graduation-cap"></i>
                 </a>
-                <a href="https://orcid.org/0009-0002-2860-2639" target="_blank">
+                <a href="https://orcid.org/0009-0002-2860-2639" target="_blank" rel="noreferrer noopener">
                     <i class="fab fa-orcid"></i>
                 </a>
-                <a href="https://linkedin.com/in/daniel-corrales-alonso/" target="_blank">
+                <a href="https://linkedin.com/in/daniel-corrales-alonso/" target="_blank" rel="noreferrer noopener">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a href="https://github.com/DanielCorralesAlonso" target="_blank">
+                <a href="https://github.com/DanielCorralesAlonso" target="_blank" rel="noreferrer noopener">
                     <i class="fab fa-github"></i>
                 </a>
-                <a href="https://twitter.com/dcorralesalonso" target="_blank">
+                <a href="https://twitter.com/dcorralesalonso" target="_blank" rel="noreferrer noopener">
                     <i class="fab fa-twitter"></i>
                 </a>
-                <a href="mailto:daniel.corrales@icmat.es" target="_blank">
+                <a href="mailto:daniel.corrales@icmat.es" target="_blank" rel="noreferrer noopener">
                     <i class="fas fa-envelope"></i>
                 </a>
             </div>
         </aside>
 
-        <main class="w-full px-4 sm:px-6 lg:px-8"> <!-- Responsive padding -->
-            <!-- Contact Info Section -->
-            <section class="max-w-full mx-auto py-10">
-                <h2 id="get-in-touch" class="text-3xl font-bold text-center mb-8">Get in Touch</h2>
-                <p id="reach-out-text" class="text-2xl font-semibold text-white text-center mb-8">Feel free to reach out to me anytime!</p>
-
-                <div class="mb-6 text-center">
-                    <p class="text-gray-100">Connect with me:</p>
-                    <div class="flex flex-wrap justify-center gap-6">
-                        <a href="https://scholar.google.com/citations?user=U4SMZ4QAAAAJ&hl=es" class="social-link text-white hover:text-blue-500">
-                            <i class="fas fa-graduation-cap"></i> Google Scholar
+        <main>
+            <section class="max-w-6xl mx-auto py-8">
+                <div class="text-center mb-6">
+                    <h2 class="text-3xl font-bold mb-3">Curriculum Vitae</h2>
+                    <p class="text-gray-300 max-w-3xl mx-auto">
+                        View my CV directly in the browser. If the embedded PDF does not load in your browser, use the download link below.
+                    </p>
+                    <div class="mt-4 flex flex-wrap justify-center gap-3">
+                        <a href="images/CV_Daniel_Corrales.pdf" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-lg transition" target="_blank" rel="noreferrer noopener">
+                            <i class="fas fa-file-pdf"></i>
+                            Open PDF
                         </a>
-                        <a href="https://orcid.org/0009-0002-2860-2639" class="social-link text-white hover:text-blue-500">
-                            <i class="fab fa-orcid"></i> Orcid
-                        </a> 
-                        <a href="https://linkedin.com/in/daniel-corrales-alonso/" class="social-link text-white hover:text-blue-500">
-                            <i class="fab fa-linkedin"></i> LinkedIn
-                        </a>
-                        <a href="https://github.com/DanielCorralesAlonso" class="social-link text-white hover:text-blue-500">
-                            <i class="fab fa-github"></i> GitHub
-                        </a>
-                        <a href="https://twitter.com/dcorralesalonso" class="social-link text-white hover:text-blue-500">
-                            <i class="fab fa-twitter"></i> Twitter
-                        </a>
-                        <a href="mailto:daniel.corrales@icmat.es" class="social-link text-white hover:text-gray-300">
-                            <i class="fas fa-envelope"></i> Mail
+                        <a href="images/CV_Daniel_Corrales.pdf" download class="inline-flex items-center gap-2 bg-gray-700 hover:bg-gray-600 text-white font-semibold px-4 py-2 rounded-lg transition">
+                            <i class="fas fa-download"></i>
+                            Download
                         </a>
                     </div>
                 </div>
-            </section>
 
-            <!-- Email Form Section -->
-            <section class="max-w-full mx-auto py-10 bg-gray-800 rounded-lg shadow-lg">
-                <h2 class="text-3xl font-semibold text-center mb-6">Send Me an Email</h2>
-                <form action="mailto:daniel.corrales@icmat.es" method="POST" enctype="text/plain">
-                    <div class="flex flex-col gap-4">
-                        <input type="text" name="name" placeholder="Your Name" class="p-4 rounded-lg bg-gray-700 text-white w-full" required>
-                        <input type="email" name="email" placeholder="Your Email" class="p-4 rounded-lg bg-gray-700 text-white w-full" required>
-                        <textarea name="message" placeholder="Your Message" class="p-4 rounded-lg bg-gray-700 text-white w-full" rows="5" required></textarea>
-                        <button type="submit" class="bg-blue-600 p-4 rounded-lg text-white hover:bg-blue-700 w-full">Send Message</button>
-                    </div>
-                </form>
+                <div class="pdf-shell rounded-2xl overflow-hidden p-3 sm:p-4">
+                    <object data="images/CV_Daniel_Corrales.pdf" type="application/pdf" class="pdf-frame">
+                        <div class="flex items-center justify-center min-h-[70vh] text-center px-6">
+                            <div>
+                                <p class="text-xl font-semibold mb-3">Your browser cannot display the CV PDF inline.</p>
+                                <p class="text-gray-300 mb-4">Use the buttons above to open or download the file.</p>
+                                <a href="images/CV_Daniel_Corrales.pdf" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-lg transition" target="_blank" rel="noreferrer noopener">
+                                    <i class="fas fa-file-pdf"></i>
+                                    Open PDF
+                                </a>
+                            </div>
+                        </div>
+                    </object>
+                </div>
             </section>
         </main>
     </div>
 </body>
 </html>
-
