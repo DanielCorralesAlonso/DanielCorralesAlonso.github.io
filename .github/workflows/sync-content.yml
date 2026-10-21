@@ -2,7 +2,7 @@ name: Sync projects and publications
 
 on:
   schedule:
-    - cron: "0 6 * * *"   # daily, 06:00 UTC
+    - cron: "0 6 1 * *"   # monthly, 1st of the month at 06:00 UTC
   workflow_dispatch:
   push:
     branches: [main]
