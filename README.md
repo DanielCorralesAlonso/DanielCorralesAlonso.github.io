@@ -12,3 +12,17 @@ The site is built by GitHub Pages with Jekyll.
 - `_data/*.yml`: page content (career, publications, talks, projects, social links)
 - `assets/css/main.css`: styles
 - `images/CV_Daniel_Corrales.pdf`: updated automatically from the private `cv` repo
+
+## Local preview
+
+Live Server won't work: pages need to be built by Jekyll first.
+
+```sh
+brew install ruby                          # once
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+bundle config set --local path vendor/bundle
+bundle install                             # once
+bundle exec jekyll serve --livereload
+```
+
+Then open http://localhost:4000. It rebuilds on every save.

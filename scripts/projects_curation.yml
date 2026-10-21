@@ -44,3 +44,4 @@ TFG:
   title: Minimax risk classifier with &alpha;-losses
   description: We present a series of algorithms for solving supervised classification problems based on decision theory and convex optimization.
   image: images/fig_h_5_D_500.jpg
+  hide: false
