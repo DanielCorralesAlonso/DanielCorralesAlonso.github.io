@@ -8,15 +8,17 @@ title: Research
                 <div class="grid grid-cols-1 gap-6">
                     {% for pub in site.data.publications %}
                     <div class="bg-gray-800 text-white p-6 rounded-lg shadow-lg flex items-center gap-4 hover:scale-105 transition-transform duration-300">
+                        {% if pub.logo %}
                         <div class="w-24 h-24 bg-white flex items-center justify-center rounded-lg">
                             <img src="{{ pub.logo | relative_url }}" alt="Publisher logo" class="max-w-full max-h-full">
                         </div>
+                        {% endif %}
                         <div>
                             <h3 class="text-xl font-bold mb-2">{{ pub.title }}</h3>
                             <p class="text-gray-300">
                                 <strong>Authors:</strong> {{ pub.authors }}<br>
                                 <strong>Year:</strong> {{ pub.year }}<br>
-                                {% if pub.venue %}<strong>Journal:</strong> {{ pub.venue }}<br>{% endif %}
+                                {% if pub.venue %}<strong>{% case pub.kind %}{% when 'journal' %}Journal{% when 'conference' %}Proceedings{% when 'preprint' %}Preprint{% else %}Published in{% endcase %}:</strong> {{ pub.venue }}<br>{% endif %}
                                 {% if pub.doi %}<strong>DOI/ISBN:</strong> <a href="https://doi.org/{{ pub.doi }}" class="text-blue-400 hover:underline" target="_blank">https://doi.org/{{ pub.doi }}</a>{% endif %}
                             </p>
                         </div>

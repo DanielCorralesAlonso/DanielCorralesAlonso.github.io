@@ -1,0 +1,48 @@
+name: Sync projects and publications
+
+on:
+  schedule:
+    - cron: "0 6 * * *"   # daily, 06:00 UTC
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/**"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install pyyaml
+
+      - name: Sync projects from GitHub
+        run: python scripts/sync_projects.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Sync publications from ORCID
+        run: python scripts/sync_publications.py
+
+      - name: Open or update pull request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: automation/sync-content
+          delete-branch: true
+          commit-message: Sync projects and publications
+          title: Sync projects and publications
+          body: |
+            Automatic update from GitHub (repos tagged `portfolio`) and ORCID.
+
+            Review the changes to `_data/projects.yml` and `_data/publications.yml`.
+            To tweak a title, description or image, edit the curation files in `scripts/`
+            on `main`; that reruns this workflow and updates the PR. Merge to publish.
