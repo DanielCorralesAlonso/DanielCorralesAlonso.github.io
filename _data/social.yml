@@ -1,0 +1,18 @@
+- name: Google Scholar
+  icon: fas fa-graduation-cap
+  url: https://scholar.google.com/citations?user=U4SMZ4QAAAAJ&hl=es
+- name: Orcid
+  icon: fab fa-orcid
+  url: https://orcid.org/0009-0002-2860-2639
+- name: LinkedIn
+  icon: fab fa-linkedin
+  url: https://linkedin.com/in/daniel-corrales-alonso/
+- name: GitHub
+  icon: fab fa-github
+  url: https://github.com/DanielCorralesAlonso
+- name: Twitter
+  icon: fab fa-twitter
+  url: https://twitter.com/dcorralesalonso
+- name: Mail
+  icon: fas fa-envelope
+  url: mailto:daniel.corrales@icmat.es

@@ -1,0 +1,48 @@
+# Most recent first.
+- institution: Duke University
+  url: https://www.duke.edu/
+  logo: images/duke.png
+  description: Research Stay at the Statistical Deparment under the supervision of Prof. David Banks
+  dates: February 2026 - May 2026
+
+- institution: Instituto de Ciencias Matemáticas
+  url: https://www.icmat.es/
+  logo: images/logo-icmat.jpg
+  description: Currently pursuing a PhD in Statistics and Machine Learning under the supervision of David Ríos Insua. My research focuses on Bayesian methods for adversarial machine learning.
+  dates: September 2024 - Present
+
+- institution: Instituto de Ciencias Matemáticas
+  url: https://www.icmat.es/
+  logo: images/logo-icmat.jpg
+  description: Worked as a research intern, contributing to projects on Bayesian decision analysis and its applications in healthcare.
+  dates: March 2024 - September 2024
+
+- institution: Universidad Carlos III de Madrid
+  url: https://www.uc3m.es/
+  logo: images/uc3m.jpg
+  description: Completed a MSc in Machine Learning for Health.
+  dates: September 2023 - July 2024
+
+- institution: JAE Intro - CSIC Scholarship
+  url: https://sede.csic.gob.es/tramites/programa-jae
+  logo: images/JAE_Intro.png
+  description: Received an introduction to research scholarship from CSIC to work at the Mathematical Sciences Institute (ICMAT).
+  dates: March 2023 - September 2023
+
+- institution: Basque Center for Applied Mathematics
+  url: https://www.bcamath.org/es
+  logo: images/logo-bcam-color-transparent-1-e1605021806572.png
+  description: Worked as a research intern, contributing to projects on Minimax Risk Classifiers with &alpha;-losses.
+  dates: July 2022 - September 2022
+
+- institution: University of Warwick
+  url: https://warwick.ac.uk/
+  logo: images/Warwick.png
+  description: Erasmus Exchange Student Program at the Mathematics Department.
+  dates: September 2021 - June 2022
+
+- institution: Universidad Complutense de Madrid
+  url: https://www.ucm.es/
+  logo: images/UCM-Logo.png
+  description: Completed a BSc in Mathematical Engineering.
+  dates: September 2018 - March 2023

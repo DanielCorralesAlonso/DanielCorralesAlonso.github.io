@@ -1,0 +1,20 @@
+# Will be generated from ORCID/OpenAlex by a scheduled workflow (Phase 3).
+# Until then, edit by hand. Shown in the order listed.
+- title: "Incentivising Personalised Colorectal Cancer Screening: an Adversarial Risk Analysis Approach"
+  authors: Corrales, D., Ríos Insua, D.
+  year: 2025
+  doi: 10.1109/CBMS65348.2025.00068
+  logo: images/ieee.png
+
+- title: A decision analysis model for colorectal cancer screening
+  authors: Corrales, D., Ríos Insua, D., González, M.J.
+  year: 2025
+  doi: 10.1016/j.compbiomed.2025.110755
+  logo: images/Elsevier_logo_2019.svg.png
+
+- title: Colorectal cancer risk mapping through Bayesian networks
+  authors: Corrales, D., Santos-Lozano, A., López-Ortiz, S., Lucia, A., Ríos Insua, D.
+  year: 2024
+  venue: Computer Methods and Programs in Biomedicine, Volume 257, 2024, 108407
+  doi: 10.1016/j.cmpb.2024.108407
+  logo: images/Elsevier_logo_2019.svg.png
