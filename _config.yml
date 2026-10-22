@@ -5,7 +5,8 @@ url: https://danielcorralesalonso.github.io
 baseurl: ""
 
 portrait: images/fotoportadapng.png
-favicon: "images/Navy Organic Contour Map.png"
+favicon: images/favicon.png
+favicon_svg: images/favicon.svg
 # Overwritten by the build workflow in the private `cv` repo.
 cv_pdf: images/CV_Daniel_Corrales.pdf
 
